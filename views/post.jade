@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	h1= post.title
+	span
+		a(href="/blog/#{post._id}/edit") [Edit]
+	div!= md.toHTML(post.content)
+	h3 Comments
+	ul
+		each comment in post.comments
+			li= comment.body
+			span.
+				by #{comment.author.name}
+	h3 Add Comment
+	form(action='/blog/#{post._id}/comments' method='POST')
+		div
+			textarea(name='body')
+		div
+			input(type='submit')

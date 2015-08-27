@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	h2 Links
+	ul
+		li
+			a(href='/home') Home
+		li
+			a(href='/logout') Logout
+	h2 Blog
+	each post in posts
+		a(href='/blog/#{post._id}')
+			h2= post.title
+		p
+			Posted on #{post.created.toDateString()} by #{post.author.name}

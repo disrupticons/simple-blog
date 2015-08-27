@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	h1 Signup
+	form(action='/register' method='POST')
+		input(name='username' type='text' required='required' placeholder='Username')
+		input(name='email' type='email' placeholder='Email')
+		input(name='pass' type='password' required='required' placeholder='Password')
+		input(type='submit')
+	h1 Login
+	form(action='/login' method='POST')
+		input(name='username' type='text' required='required' placeholder='Username')
+		input(name='password' type='password' required='required' placeholder='Password')
+		input(type='submit')
+	h3(style='color:"red";')= message
+

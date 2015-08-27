@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	form(action='/blog/#{post._id}' method='POST')
+		div
+			input(name='title' type='text' size='50' placeholder="Title" value='#{ post.title }')
+			input(name="_method" type='hidden' value="POST")
+		div
+			textarea(name='content' rows='20' cols='50' placeholder="Content (Supports Markdown)").
+				#{post.content}
+		div
+			input(type='submit')
